@@ -1036,67 +1036,173 @@ body{
 
 /* HEADER */
 .header{
-  background:var(--primary);
-  color:#fff;
-  padding:10px 16px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
 
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
 
-  max-width:420px;
-  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
   width:100%;
+  max-width:420px;
 
-  overflow:hidden;
+  margin:0 auto;
+
+  padding:10px 14px;
+
+  background:rgba(20,50,28,.92);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.12);
 }
 
-
 .nav-left{
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  min-width:0;
+
+  flex:1;
+}
+
+.logo-img{
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+
+  border:2px solid rgba(255,255,255,.18);
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,.18);
+}
+
+.brand-wrap{
+
+  display:flex;
+  flex-direction:column;
+
+  min-width:0;
+}
+
+.brand-title{
+
+  color:#fff;
+
   font-size:15px;
+  font-weight:800;
+
+  line-height:1.1;
+
+  white-space:nowrap;
+}
+
+.brand-subtitle{
+
+  color:rgba(255,255,255,.72);
+
+  font-size:11px;
+
   font-weight:600;
+
+  letter-spacing:.8px;
 }
 
 .nav-right{
+
   display:flex;
+  align-items:center;
+
   gap:8px;
+
+  flex-shrink:0;
 }
 
-.nav-right button{
-  height:34px;
-  padding:0 12px;
+.nav-icon-btn,
+.nav-logout-btn{
+
+  height:38px;
+
   border:none;
-  border-radius:8px;
+
+  border-radius:12px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:13px;
-  font-weight:600;
   cursor:pointer;
 
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:.25s ease;
 }
 
-.back-btn{
-  background:#fff;
-  color:#2e7d32;
-}
+.nav-icon-btn{
 
-.logout-btn{
-  background:rgba(255,255,255,0.15);
+  width:38px;
+
+  background:rgba(255,255,255,.12);
+
   color:#fff;
-  backdrop-filter: blur(6px);
 
-  border:1px solid rgba(255,255,255,0.3);
+  font-size:18px;
 }
-.logout-btn:hover{
-  background:rgba(255,255,255,0.25);
+
+.nav-logout-btn{
+
+  padding:0 14px;
+
+  background:#ef4444;
+
+  color:#fff;
+
+  font-size:13px;
+  font-weight:700;
+}
+
+.nav-icon-btn:hover,
+.nav-logout-btn:hover{
+
+  transform:translateY(-1px);
+}
+
+@media(max-width:420px){
+
+  .header{
+
+    padding:10px 12px;
+  }
+
+  .brand-title{
+
+    font-size:14px;
+  }
+
+  .brand-subtitle{
+
+    font-size:10px;
+  }
+
+  .nav-logout-btn{
+
+    padding:0 12px;
+    font-size:12px;
+  }
+
 }
 
 /* WRAPPER */
@@ -2907,8 +3013,23 @@ body.test-mode *{
 <div class="header">
 
 <div class="nav-left">
-  <img src="https://drive.google.com/thumbnail?id=1JLqD3BYPdxR0RwD998Q2JWiUvFhGfBSa&sz=w1000" class="logo-img">
-  <span>MAHADEV ACADEMY</span>
+
+  <img
+    class="logo-img"
+    src="https://drive.google.com/thumbnail?id=1JLqD3BYPdxR0RwD998Q2JWiUvFhGfBSa&sz=w200">
+
+  <div class="brand-wrap">
+
+    <span class="brand-title">
+      MA TEST
+    </span>
+
+    <span class="brand-subtitle">
+      JNVST 2026
+    </span>
+
+  </div>
+
 </div>
 
   <!-- TIMER -->
@@ -2921,7 +3042,7 @@ body.test-mode *{
 <div id="app" class="wrapper"></div>
 
 
-<?!= HtmlService.createHtmlOutputFromFile('script').getContent(); ?>
+
 <script src="script.js"></script>
 
 
