@@ -81,38 +81,37 @@ function pushState(){
 window.onpopstate = () => loadTests();
 
 function showNavButtons(){
+
   const nav = document.getElementById("navBtns");
-nav.innerHTML = `
-  <button class="back-btn"
-    id="refreshBtn">
 
-    🔄
+  nav.innerHTML = `
 
-  </button>
+    <button
+      class="nav-icon-btn"
+      id="profileBtn">
 
-  <button class="back-btn"
-    id="profileBtn">
+      👤
 
-    👤
+    </button>
 
-  </button>
+    <button
+      class="nav-logout-btn"
+      id="logoutBtn">
 
-  <button class="logout-btn"
-    id="logoutBtn">
+      Logout
 
-    Logout
+    </button>
 
-  </button>
-`;
-document.getElementById(
-  "refreshBtn"
-).onclick = () => {
+  `;
 
-  loadTests();
+  document.getElementById(
+    "profileBtn"
+  ).onclick = showProfile;
 
-};
-  document.getElementById("profileBtn").onclick = showProfile;
-  document.getElementById("logoutBtn").onclick = logout;
+  document.getElementById(
+    "logoutBtn"
+  ).onclick = logout;
+
 }
 
 function hideNavButtons(){
