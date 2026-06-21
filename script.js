@@ -144,8 +144,8 @@ function showLogin(){
   app.innerHTML = `
   <div class="login-card">
    <div class="logo">
-  <img src="https://drive.google.com/thumbnail?id=1nicJIeUOBfr1c9Chpv117uv9sQq_DfD9" class="login-logo">
-</div>
+   <img src="https://drive.google.com/thumbnail?id=1JLqD3BYPdxR0RwD998Q2JWiUvFhGfBSa&sz=w1000" class="login-logo">
+  </div>
     <div class="title">Welcome Back</div>
     <div class="subtitle">Login to continue</div>
 
