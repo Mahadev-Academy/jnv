@@ -1426,9 +1426,19 @@ button, .option{
 }
 
 .logo-img{
-  width:22px;
-  height:22px;
-  object-fit:contain;
+
+  width:42px;
+
+  height:42px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  flex-shrink:0;
+
+  border:2px solid rgba(255,255,255,.25);
+
 }
 /* ===== PREMIUM TIMER ===== */
 
@@ -2872,8 +2882,8 @@ body.test-mode *{
 
 .login-logo{
 
-  width:200px;
-  height:200px;
+  width:260px;
+  height:260px;
 
   border-radius:50%;
 
@@ -2896,10 +2906,10 @@ body.test-mode *{
 
 <div class="header">
 
-  <div class="nav-left">
-    <img src="https://drive.google.com/thumbnail?id=1nicJIeUOBfr1c9Chpv117uv9sQq_DfD9" class="logo-img">
-    <span>MAHADEV ACADEMY TEST</span>
-  </div>
+<div class="nav-left">
+  <img src="https://drive.google.com/thumbnail?id=1JLqD3BYPdxR0RwD998Q2JWiUvFhGfBSa&sz=w1000" class="logo-img">
+  <span>MAHADEV ACADEMY</span>
+</div>
 
   <!-- TIMER -->
  
@@ -2911,7 +2921,11 @@ body.test-mode *{
 <div id="app" class="wrapper"></div>
 
 
+<?!= HtmlService.createHtmlOutputFromFile('script').getContent(); ?>
 <script src="script.js"></script>
+
+
+
 
 
 </body>
