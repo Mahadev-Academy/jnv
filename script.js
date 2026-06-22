@@ -2453,47 +2453,69 @@ margin-bottom:20px;
 
     `;
 
-    data.questions.forEach((q,index)=>{
+data.questions.forEach((q,index)=>{
 
-      const correct =
-        q.studentAnswer === q.correctAnswer;
+  const attempted =
+    q.studentAnswer !== "" &&
+    q.studentAnswer !== null &&
+    q.studentAnswer !== undefined;
+
+  const correct =
+    attempted &&
+    q.studentAnswer === q.correctAnswer;
 
       html += `
 
-      <div class="
-        premium-analysis-card
-        ${correct
-          ? 'premium-correct'
-          : 'premium-wrong'}
-      ">
+<div class="
+  premium-analysis-card
+  ${
+    !attempted
+      ? 'premium-unattempted'
+      : correct
+        ? 'premium-correct'
+        : 'premium-wrong'
+  }
+">
 
         <!-- TOP -->
 
         <div class="question-top">
 
           <div class="
-            question-badge
-            ${correct
-              ? 'badge-correct'
-              : 'badge-wrong'}
-          ">
+          question-badge
+          ${
+         !attempted
+         ? 'badge-unattempted'
+          : correct
+          ? 'badge-correct'
+          : 'badge-wrong'
+        }
+        ">
 
             Q${index+1}
 
           </div>
 
-          <div class="
-            status-pill
-            ${correct
-              ? 'pill-correct'
-              : 'pill-wrong'}
-          ">
+<div class="
+  status-pill
+  ${
+    !attempted
+      ? 'pill-unattempted'
+      : correct
+        ? 'pill-correct'
+        : 'pill-wrong'
+  }
+">
 
-            ${correct
-              ? '✅ Correct'
-              : '❌ Wrong'}
+  ${
+    !attempted
+      ? '⚪ Not Attempted'
+      : correct
+        ? '✅ Correct'
+        : '❌ Wrong'
+  }
 
-          </div>
+</div>
 
         </div>
 
@@ -2513,12 +2535,16 @@ margin-bottom:20px;
             Your Answer
           </div>
 
-          <div class="
-            answer-value
-            ${correct
-              ? 'correct-answer-text'
-              : 'wrong-answer-text'}
-          ">
+<div class="
+  answer-value
+  ${
+    !attempted
+      ? 'unattempted-answer-text'
+      : correct
+        ? 'correct-answer-text'
+        : 'wrong-answer-text'
+  }
+">
 
             ${q.studentAnswer
               ? `${q.studentAnswer}.
